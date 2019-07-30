@@ -1,0 +1,89 @@
+<p>
+<mat-form-field appearance="legacy">
+    <mat-label>Apointment Date</mat-label>
+    <input type="date" matInput [(ngModel)] ="aNewdate" placeholder="Apointment Date">
+  </mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="legacy">
+  <mat-label>Reason</mat-label>
+  <textarea matInput [(ngModel)] ="aNewreason" placeholder="Reason"></textarea>
+</mat-form-field>
+</p>
+
+<p>
+    <mat-form-field>
+        <mat-label>Choose Doctor</mat-label>
+        <select matNativeControl  [(ngModel)] ="aNewdoctor" placeholder="Doctor">
+          <option value="" selected disabled></option>
+          <option value="Dr Mkule">Dr Mkule</option>
+          <option value="Dr Zulu">Dr Zulu</option>
+          <option value="Dr Maake">Dr Maake</option>
+          <option value="Dr Zwane">Dr Zwane</option>
+        </select>
+      </mat-form-field>
+  </p>
+
+
+    <div *ngIf = "PatID">
+      
+  
+        <input matInput [(ngModel)] ="Array.pid" hidden >
+      
+
+  <br>
+  
+      <button mat-flat-button color="primary" (click)= "addAppointment(Array.pid,aNewdate,aNewreason,aNewdoctor)" > Add </button> <br>
+<!----</button>[routerLink]="['/appointment/',Array.pid]" -->
+
+ </div>
+<br>
+
+<br> 
+
+
+
+<table mdbTable >
+  <thead>
+    <tr>
+      <th  scope="col"> Patient ID</th>
+      <th  scope="col"> Appointment Date</th>
+      <th  scope="col"> Appointment Reason</th>
+      <th  scope="col"> Appointment Doctor</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr mdbTableCol *ngFor = "let list of NewAppointment">
+
+      <td> {{list.pid}} </td>
+      <td> {{list.date}} </td>
+      <td> {{list.reason}} </td>
+      <td> {{list.doctor}} </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<!----table mdbTable >
+    <thead>
+      <tr>
+        <th  scope="col"> Patient ID</th>
+        <th  scope="col"> Appointment Date</th>
+        <th  scope="col"> Appointment Reason</th>
+        <th  scope="col"> Appointment Doctor</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+  <tr mdbTableCol *ngFor = "let list of AppointmentList">
+  
+        <td> {{list.pid}} </td>
+        <td> {{list.date}} </td>
+        <td> {{list.reason}} </td>
+        <td> {{list.doctor}} </td>
+      </tr>
+    </tbody>
+  </table-->
+  <br>

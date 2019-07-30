@@ -1,0 +1,53 @@
+
+<p></p>
+<p>
+        <mat-form-field appearance="legacy">
+          <mat-label>Patient Name</mat-label>
+          <input matInput [(ngModel)] ="NewName" placeholder="Patient Name" required>
+        </mat-form-field>
+      </p>
+      
+      <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Patient Surname</mat-label>
+        <input matInput [(ngModel)] ="NewPatientsurname" placeholder="Patient Surname" required>
+      </mat-form-field>
+      </p>
+      
+      <p>
+        <mat-form-field appearance="legacy">
+          <mat-label>ID Number</mat-label>
+          <input matInput [(ngModel)] ="NewId" placeholder="ID Number"  required> 
+        </mat-form-field>
+        </p>
+      <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Age</mat-label>
+        <input matInput [(ngModel)] ="NewAge" placeholder="Age" max="3" required>
+      </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="legacy">
+          <mat-label>Contact Number</mat-label>
+          <input matInput [(ngModel)] ="NewContact" placeholder="Contact Number" max="10" required> 
+        </mat-form-field>
+        </p>
+      
+      <button mat-flat-button color="primary" (click)= "addPatient(NewId,NewName,NewPatientsurname,NewAge,NewContact)" > Add </button> <br>
+      
+      <br>
+      <table mdbTable>
+            <thead>
+              <tr>
+                <th  scope="col"> Patient Name</th>
+              </tr>
+            </thead>
+            <tbody>
+  
+         <tr mdbTableCol  *ngFor = "let list of PatientList">
+                <td><a [routerLink]="['/patient/',list.pid]"> {{list.patientName}}</a> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+

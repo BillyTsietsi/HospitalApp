@@ -1,0 +1,30 @@
+<br>
+<table mdbTable >
+      <thead>
+        <tr>
+          <th  scope="col"> Patient Name</th>
+          <th  scope="col"> Patient Surname</th>
+          <th  scope="col"> Patient ID</th>
+          <th  scope="col"> Patient Age</th>
+          <th  scope="col"> Patient  Contuct Number</th>
+          <th  scope="col"> Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+   
+   <!--tr mdbTableCol *ngIf = "id"   *ngFor = "let lis of PatientArray-->
+   <tr mdbTableCol *ngFor = "let list of PatientList">
+   
+          <td> {{list.patientName}} </td>
+          <td> {{list.patientSurname}} </td>
+          <td> {{list.pid}} </td>
+          <td> {{list.age}} </td>
+          <td> {{list.contact}} </td>
+          <td><a [routerLink]="['/appointment/',list.pid]">Make Appointment</a> </td>
+
+
+        </tr>
+      
+      </tbody>
+    </table>
